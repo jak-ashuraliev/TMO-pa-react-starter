@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-// import { Form, FormGroup, Label, Input, Button, List } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, List } from 'reactstrap';
 
 function App() {
 
@@ -45,49 +45,48 @@ function App() {
       {/* ^ Do not remove this element ^ */}
 
       <h1>My Recipes</h1>
-      { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
-
       {recipes && recipes.map((recipe, index) => {
         return (
-          <ul type="unstyled" key={index}>
+          <List type="unstyled" key={index}>
             <li className="text-bold">{recipe.name}</li>
             <li className="indent">{recipe.inst}</li>
-          </ul>
+          </List>
         )
       })}
+      { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
 
       { hideAddButton === false ? (
-        <button type="submit" 
+        <Button type="submit" 
         className="mt-2 mb-4"
         color="primary"
         onClick={() => hideBtn()}
-        >Add Recipe</button>
+        >Add Recipe</Button>
       ) : ("")}
 
       { showForm === true ? (
-        <form onSubmit={(e) => handleSubmit(e)}>
-        {/* <FormGroup> */}
+        <Form onSubmit={(e) => handleSubmit(e)}>
+        <FormGroup>
           
-          <label className="mt-2">Recipe Name:</label>
-          <input type="text" 
+          <Label className="mt-2">Recipe Name:</Label>
+          <Input type="text" 
             name="Recipe Name" 
             value={recipeName} 
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe name"/>
           
-          <label className="mt-2">Recipe Instructions:</label>
-          <input type="textarea" 
+          <Label className="mt-2">Recipe Instructions:</Label>
+          <Input type="textarea" 
             name="Recipe Instructions" 
             value={recipeInst} 
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe instructions"/>
 
-        {/* </FormGroup> */}
+        </FormGroup>
         
-        <button type="submit" 
+        <Button type="submit" 
           className="mt-2"
-          color="success">Submit</button>
-      </form>
+          color="success">Submit</Button>
+      </Form>
       ) : ("")}
 
     </div>
