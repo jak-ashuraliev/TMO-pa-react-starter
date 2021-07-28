@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button, List } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 function App() {
 
@@ -45,15 +45,17 @@ function App() {
       {/* ^ Do not remove this element ^ */}
 
       <h1>My Recipes</h1>
+
+      { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
+
       {recipes && recipes.map((recipe, index) => {
         return (
-          <List type="unstyled" key={index}>
+          <ul type="unstyled" key={index}>
             <li className="text-bold">{recipe.name}</li>
             <li className="indent">{recipe.inst}</li>
-          </List>
+          </ul>
         )
       })}
-      { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
 
       { hideAddButton === false ? (
         <Button type="submit" 
@@ -82,7 +84,7 @@ function App() {
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe instructions"/>
           </Label>
-          
+
         </FormGroup>
         
         <Button type="submit" 
