@@ -6,7 +6,7 @@ function App() {
 
   const [ recipes, setRecipes ] = useState([]);
   const [ recipeName, setRecipeName ] = useState("");
-  const [ recipeInst, setRecipeInst ] = useState("");
+  const [ recipeInstructions, setRecipeInst ] = useState("");
 
   const [ hideAddButton, setHideAddButton ] = useState(false);
   const [ showForm, setShowForm ] = useState(false);
@@ -24,7 +24,7 @@ function App() {
   // Handle Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newRecipes = { name: recipeName, inst: recipeInst };
+    const newRecipes = { recipeName: recipeName, recipeInstructions: recipeInstructions };
     setRecipes((recipesList) => [...recipes, newRecipes])
     setRecipeName("");
     setRecipeInst("");
@@ -51,8 +51,8 @@ function App() {
       {recipes && recipes.map((recipe, index) => {
         return (
           <div key={index}>
-            <div>{recipe.name}</div>
-            <div>{recipe.inst}</div>
+            <div>{recipe.recipeName}</div>
+            <div>{recipe.recipeInstructions}</div>
           </div>
         )
       })}
@@ -80,7 +80,7 @@ function App() {
           <Label className="mt-2">Recipe Instructions
           <Input type="text" 
             name="Recipe Instructions" 
-            value={recipeInst} 
+            value={recipeInstructions} 
             onChange={(e) => handleChange(e)} 
             placeholder="Recipe Instructions"/>
           </Label>
