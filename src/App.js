@@ -50,9 +50,9 @@ function App() {
 
       {recipes && recipes.map((recipe, index) => {
         return (
-          <ul type="unstyled" key={index}>
-            <li className="text-bold">{recipe.name}</li>
-            <li className="indent">{recipe.inst}</li>
+          <ul key={index}>
+            <li>{recipe.name}</li>
+            <li>{recipe.inst}</li>
           </ul>
         )
       })}
@@ -69,27 +69,27 @@ function App() {
         <Form onSubmit={(e) => handleSubmit(e)}>
         <FormGroup>
           
-          <Label className="mt-2">Recipe Name:
+          <Label className="mt-2">Recipe Name
           <Input type="text" 
             name="Recipe Name" 
             value={recipeName} 
             onChange={(e) => handleChange(e)} 
-            placeholder="Enter recipe name"/>
+            placeholder="Recipe Name"/>
           </Label>
           
-          <Label className="mt-2">Recipe Instructions:
+          <Label className="mt-2">Recipe Instructions
           <Input type="text" 
             name="Recipe Instructions" 
             value={recipeInst} 
             onChange={(e) => handleChange(e)} 
-            placeholder="Enter recipe instructions"/>
+            placeholder="Recipe Instructions"/>
           </Label>
 
         </FormGroup>
         
         <Button type="submit" 
           className="mt-2"
-          color="success">Submit</Button>
+          color="success">Add Recipe</Button>
       </Form>
       ) : ("")}
 
