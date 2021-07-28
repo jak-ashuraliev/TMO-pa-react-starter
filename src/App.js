@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button, List } from 'reactstrap';
+// import { Form, FormGroup, Label, Input, Button, List } from 'reactstrap';
 
 function App() {
 
@@ -47,47 +47,47 @@ function App() {
       <h1>My Recipes</h1>
       { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
 
-      { hideAddButton === false ? (
-        <Button type="submit" 
-        className="mt-2 mb-4"
-        color="primary"
-        onClick={() => hideBtn()}
-        >Add Recipe</Button>
-      ) : ("")}
-      
       {recipes && recipes.map((recipe, index) => {
         return (
-          <List type="unstyled" key={index}>
+          <ul type="unstyled" key={index}>
             <li className="text-bold">{recipe.name}</li>
             <li className="indent">{recipe.inst}</li>
-          </List>
+          </ul>
         )
       })}
 
+      { hideAddButton === false ? (
+        <button type="submit" 
+        className="mt-2 mb-4"
+        color="primary"
+        onClick={() => hideBtn()}
+        >Add Recipe</button>
+      ) : ("")}
+
       { showForm === true ? (
-        <Form onSubmit={(e) => handleSubmit(e)}>
-        <FormGroup>
+        <form onSubmit={(e) => handleSubmit(e)}>
+        {/* <FormGroup> */}
           
-          <Label className="mt-2">Recipe Name:</Label>
-          <Input type="text" 
+          <label className="mt-2">Recipe Name:</label>
+          <input type="text" 
             name="Recipe Name" 
             value={recipeName} 
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe name"/>
           
-          <Label className="mt-2">Recipe Instructions:</Label>
-          <Input type="textarea" 
+          <label className="mt-2">Recipe Instructions:</label>
+          <input type="textarea" 
             name="Recipe Instructions" 
             value={recipeInst} 
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe instructions"/>
 
-        </FormGroup>
+        {/* </FormGroup> */}
         
-        <Button type="submit" 
+        <button type="submit" 
           className="mt-2"
-          color="success">Submit</Button>
-      </Form>
+          color="success">Submit</button>
+      </form>
       ) : ("")}
 
     </div>
