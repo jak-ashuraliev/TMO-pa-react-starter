@@ -67,20 +67,22 @@ function App() {
         <Form onSubmit={(e) => handleSubmit(e)}>
         <FormGroup>
           
-          <Label className="mt-2">Recipe Name:</Label>
+          <Label className="mt-2">Recipe Name:
           <Input type="text" 
             name="Recipe Name" 
             value={recipeName} 
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe name"/>
+          </Label>
           
-          <Label className="mt-2">Recipe Instructions:</Label>
-          <Input type="textarea" 
+          <Label className="mt-2">Recipe Instructions:
+          <Input type="text" 
             name="Recipe Instructions" 
             value={recipeInst} 
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe instructions"/>
-
+          </Label>
+          
         </FormGroup>
         
         <Button type="submit" 
