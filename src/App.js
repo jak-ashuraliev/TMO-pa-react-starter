@@ -45,18 +45,16 @@ function App() {
       {/* ^ Do not remove this element ^ */}
 
       <h1>My Recipes</h1>
-
-      { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
-
       {recipes && recipes.map((recipe, index) => {
         return (
           <div key={index}>
             <div>{recipe.recipeName}</div>
-            <div>{recipe.recipeInstructions}</div>
+            {/* <div>{recipe.recipeInstructions}</div> */}
           </div>
         )
       })}
-
+      { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
+      
       { hideAddButton === false ? (
         <Button type="submit" 
         className="mt-2 mb-4"
@@ -89,7 +87,7 @@ function App() {
         
         <Button type="submit" 
           className="mt-2"
-          color="success">Add Recipe</Button>
+          color="success">Submit</Button>
       </Form>
       ) : ("")}
 
