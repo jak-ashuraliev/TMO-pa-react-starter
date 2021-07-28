@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, List } from 'reactstrap';
 
 function App() {
 
@@ -46,7 +46,6 @@ function App() {
 
       <h1>My Recipes</h1>
       { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
-      <p className="doNotRemoveMe">There are no recipes to list</p>
 
       { hideAddButton === false ? (
         <Button type="submit" 
@@ -58,10 +57,10 @@ function App() {
       
       {recipes && recipes.map((recipe, index) => {
         return (
-          <div key={index}>
-            <p className="text-bold">{recipe.name}</p>
-            <p className="indent">{recipe.inst}</p>
-          </div>
+          <List type="unstyled" key={index}>
+            <li className="text-bold">{recipe.name}</li>
+            <li className="indent">{recipe.inst}</li>
+          </List>
         )
       })}
 
