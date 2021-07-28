@@ -50,10 +50,10 @@ function App() {
 
       {recipes && recipes.map((recipe, index) => {
         return (
-          <ul key={index}>
-            <li>{recipe.name}</li>
-            <li>{recipe.inst}</li>
-          </ul>
+          <div key={index}>
+            <div>{recipe.name}</div>
+            <div>{recipe.inst}</div>
+          </div>
         )
       })}
 
