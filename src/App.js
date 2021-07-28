@@ -14,9 +14,9 @@ function App() {
   // HandleChange
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "recipename") {
+    if (name === "Recipe Name") {
       setRecipeName(value);
-    } else if (name === 'recipeinst') {
+    } else if (name === 'Recipe Instructions') {
       setRecipeInst(value);
     }
   }
@@ -46,7 +46,8 @@ function App() {
 
       <h1>My Recipes</h1>
       { recipes?.length >= 1 ? "" : <p>There are no recipes to list</p> }
-      
+      <p className="doNotRemoveMe">There are no recipes to list</p>
+
       { hideAddButton === false ? (
         <Button type="submit" 
         className="mt-2 mb-4"
@@ -70,14 +71,14 @@ function App() {
           
           <Label className="mt-2">Recipe Name:</Label>
           <Input type="text" 
-            name="recipename" 
+            name="Recipe Name" 
             value={recipeName} 
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe name"/>
           
           <Label className="mt-2">Recipe Instructions:</Label>
           <Input type="textarea" 
-            name="recipeinst" 
+            name="Recipe Instructions" 
             value={recipeInst} 
             onChange={(e) => handleChange(e)} 
             placeholder="Enter recipe instructions"/>
