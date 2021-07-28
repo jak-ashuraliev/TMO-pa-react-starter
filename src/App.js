@@ -50,7 +50,7 @@ function App() {
         return (
           <section role="list" key={index}>
             <div role="listitem">{recipe.recipeName}</div>
-            <div role="listitem">{recipe.recipeInstructions}</div>
+            {/* <div role="listitem">{recipe.recipeInstructions}</div> */}
           </section>
         )
       })}
